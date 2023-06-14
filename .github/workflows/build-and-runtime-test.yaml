@@ -1,0 +1,28 @@
+# Description: this workflow runs build and simple runtime tests on supported
+#              frameworks and their build systems.
+name: Build and Runtime Test
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
+
+jobs:
+  log-success-metric:
+    # Send a success data point to metric BuildAndRuntimeTestFailure in github-workflows@ us-east-2, if it's a success
+    runs-on: ubuntu-latest
+    environment: test
+    # needs: build
+    # if: ${{ success() }}
+    steps:
+      - name: Log success data point to metric BuildAndRuntimeTestFailure
+        uses: ./.github/composite_actions/log_metric
+        with:
+          metric-name: TEST-BuildAndRuntimeTestFailure
+          value: 0
+          role-to-assume: ${{ secrets.METRIC_LOGGER_ROLE_ARN }}
+          aws-region: us-east-1
