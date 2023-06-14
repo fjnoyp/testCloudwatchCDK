@@ -19,6 +19,10 @@ jobs:
     # needs: build
     # if: ${{ success() }}
     steps:
+      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579
+        with:
+          persist-credentials: false
+          submodules: true
       - name: Log success data point to metric BuildAndRuntimeTestFailure
         uses: ./.github/composite_actions/log_metric
         with:
