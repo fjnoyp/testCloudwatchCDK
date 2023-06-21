@@ -15,7 +15,7 @@ jobs:
   log-success-metric:
     # Send a success data point to metric BuildAndRuntimeTestFailure in github-workflows@ us-east-2, if it's a success
     runs-on: ubuntu-latest
-    environment: test
+    # environment: test
     # needs: build
     # if: ${{ success() }}
     steps:
@@ -26,7 +26,7 @@ jobs:
       - name: Log success data point to metric BuildAndRuntimeTestFailure
         uses: ./.github/composite_actions/log_metric
         with:
-          metric-name: TEST-BuildAndRuntimeTestFailure
+          metric-name: CanaryTestFailure
           value: 0
           role-to-assume: ${{ secrets.METRIC_LOGGER_ROLE_ARN }}
           aws-region: us-east-1
