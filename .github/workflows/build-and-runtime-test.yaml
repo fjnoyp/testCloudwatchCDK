@@ -26,7 +26,7 @@ jobs:
       - name: Log success data point to metric BuildAndRuntimeTestFailure
         uses: ./.github/composite_actions/log_metric
         with:
-          metric-name: CanaryTestFailure
+          metric-name: TEST-BuildAndRuntimeTestFailure
           value: 0
           role-to-assume: ${{ secrets.METRIC_LOGGER_ROLE_ARN }}
           aws-region: us-east-1
