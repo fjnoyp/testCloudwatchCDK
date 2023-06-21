@@ -15,7 +15,7 @@ jobs:
   log-success-metric:
     # Send a success data point to metric BuildAndRuntimeTestFailure in github-workflows@ us-east-2, if it's a success
     runs-on: ubuntu-latest
-    # environment: test
+    environment: test
     # needs: build
     # if: ${{ success() }}
     steps:
