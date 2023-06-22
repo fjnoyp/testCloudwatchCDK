@@ -1,8 +1,8 @@
 import 'dart:io';
 
 void main() {
-  final metricName = const String.fromEnvironment('metric-name');
-  final value = const String.fromEnvironment('value');
+  final metricName = const String.fromEnvironment('METRIC_NAME');
+  final value = const String.fromEnvironment('VALUE');
 
   var metricNameTrimmed = metricName.trim();
   var valueTrimmed = value.trim();

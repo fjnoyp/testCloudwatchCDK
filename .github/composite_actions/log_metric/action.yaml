@@ -39,5 +39,5 @@ runs:
       run: dart ./tool/send_metric_data.dart
       shell: bash
       env:
-        metricName: ${{ inputs.metric-name }}
-        value: ${{ inputs.value }}
+        METRIC_NAME: ${{ inputs.metric-name }}
+        VALUE: ${{ inputs.value }}
