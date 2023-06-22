@@ -36,7 +36,7 @@ runs:
       # Run a Dart script to put metric data.
       # First trim the input by removing trailing or leading spaces, then removing any new line characters.
       # Then, we do regex test to match against expected input shape. Finally, put metric data using aws cli.
-      run: dart ./tool/send_metric_data.dart
+      run: dart ./tool/send_metric_data.dart ${{ inputs.metric-name }} ${{ inputs.value }}
       shell: bash
       env:
         METRIC_NAME: ${{ inputs.metric-name }}
