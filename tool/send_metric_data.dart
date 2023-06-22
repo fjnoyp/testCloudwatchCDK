@@ -1,5 +1,9 @@
 import 'dart:io';
 void main() {
+
+  final metricName = const String.fromEnvironment('METRIC_NAME');
+  final value = const String.fromEnvironment('VALUE');
+
   var metricNameTrimmed = metricName.trim();
   var valueTrimmed = value.trim();
   var metricNameRegex = RegExp(r'^[a-zA-Z0-9\ \_\-]+$');
